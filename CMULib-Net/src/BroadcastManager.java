@@ -112,13 +112,13 @@ public class BroadcastManager {
     }
   }
 
-  private void migrate(Socket socket, MigratableProcess process, String hostIP) throws IOException {
+  private void migrate(Socket socket, SlaveInfo slave, String hostIP) throws IOException {
     // TODO Auto-generated method stub
     ObjectOutputStream out = new ObjectOutputStream(socket.getOutputStream());
     DataInputStream in = new DataInputStream(socket.getInputStream());
     boolean successful = false;
     try {
-      out.writeObject(process);
+      out.writeObject(slave);
       successful = in.readBoolean();
     } catch (IOException e) {
       System.err.println("Failed to send information to " + hostIP + " due to IOException");
