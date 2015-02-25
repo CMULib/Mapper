@@ -3,6 +3,9 @@ import java.io.IOException;
 import java.io.ObjectInputStream;
 import java.net.Socket;
 
+/**
+ * Created by zhoucheng on 2/24/15.
+ */
 public class BroadcastResponseReceiver implements Runnable {
   private Socket client;
 

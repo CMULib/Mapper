@@ -2,7 +2,9 @@ import java.io.IOException;
 import java.net.ServerSocket;
 import java.net.Socket;
 
-
+/**
+ * Created by zhoucheng on 2/24/15.
+ */
 public class BroadcastServer implements Runnable {
   private ServerSocket server; 
   
