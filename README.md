@@ -1,2 +1,2 @@
 # Broadcast -- find nodes
-# Mapper -- connect edges
+# Mapper -- connect nodes
