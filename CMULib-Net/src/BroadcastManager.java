@@ -112,7 +112,7 @@ public class BroadcastManager {
     }
   }
 
-  private void migrate(Socket socket, SlaveInfo slave, String hostIP) throws IOException {
+  private void response(Socket socket, SlaveInfo slave, String hostIP) throws IOException {
     // TODO Auto-generated method stub
     ObjectOutputStream out = new ObjectOutputStream(socket.getOutputStream());
     DataInputStream in = new DataInputStream(socket.getInputStream());
