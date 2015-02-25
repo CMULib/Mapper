@@ -4,12 +4,12 @@ import java.net.DatagramSocket;
 import java.net.InetAddress;
 
 
-public class broadcast {
+public class Broadcast {
     public static final int DEFAULT_PORT = 8000;
     private DatagramSocket socket;
     private DatagramPacket packet;
 
-    public void connect() {
+    public void broadcast() {
         try {
             socket = new DatagramSocket(DEFAULT_PORT);
 
@@ -18,7 +18,8 @@ public class broadcast {
         }
         packet = new DatagramPacket (new byte[1], 1);
         
-        while (true)
+        int i = 3;
+        while (i-- > 0)
         {
             try
             {
