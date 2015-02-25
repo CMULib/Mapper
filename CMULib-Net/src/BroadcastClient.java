@@ -44,7 +44,8 @@ public class BroadcastClient implements Runnable {
 
     }
     void reply() throws IOException {
-        Socket local = new Socket(packet.getAddress(), packet.getPort());
+        Socket local = new Socket(packet.getAddress(), 8888);
+        System.out.println(packet.getAddress());
         ObjectOutputStream out = new ObjectOutputStream(local.getOutputStream());
         SlaveInfo slaveInfo = new SlaveInfo();
         out.writeObject(slaveInfo);
