@@ -5,7 +5,7 @@ import java.net.InetAddress;
 
 
 public class Broadcast {
-    public static final int DEFAULT_PORT = 8000;
+    public static final int DEFAULT_PORT = 9000;
     private DatagramSocket socket;
     private DatagramPacket packet;
 

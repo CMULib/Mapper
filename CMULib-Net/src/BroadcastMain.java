@@ -10,7 +10,7 @@ public class BroadcastMain {
            // BroadcastManager keeper = BroadcastManager.getInstance();
         }
         else if (args[0].equals("slave")){
-            BroadcastClient client = new BroadcastClient(8888);
+            BroadcastClient client = new BroadcastClient(9000);
             new Thread(client).start();
         }
     }
