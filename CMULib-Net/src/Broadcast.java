@@ -11,25 +11,24 @@ public class Broadcast {
 
     public void broadcast() {
         try {
-            socket = new DatagramSocket(DEFAULT_PORT);
+            socket = new DatagramSocket();
 
         }catch (Exception ex) {
             System.out.println("Wrong!");
         }
         packet = new DatagramPacket (new byte[1], 1);
         
-        int i = 3;
+        int i = 1;
         while (i-- > 0)
         {
             try
             {
                 byte[] outBuffer = "This is for CMULib only".toString ().getBytes ();
-                packet.setData (outBuffer);
-                packet.setLength (outBuffer.length);
-                InetAddress address = InetAddress.getByName("255.255.255.255");
-                socket.setBroadcast(true);
-                packet.setAddress(address);
-                socket.send (packet);
+                //socket.setBroadcast(true);
+                DatagramPacket sendPacket = new DatagramPacket(outBuffer,
+                            outBuffer.length,
+                            InetAddress.getByName("255.255.255.255"), 9000);
+                socket.send (sendPacket);
             }
             catch (IOException ie)
             {

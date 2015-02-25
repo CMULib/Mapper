@@ -23,6 +23,7 @@ public class BroadcastResponseReceiver implements Runnable {
 
       if (obj instanceof SlaveInfo) {
         slave = (SlaveInfo) obj;
+        System.out.println("Used Memory: " + slave.mUsedMemory);
         out.writeBoolean(true);
       } else {
         out.writeBoolean(false);

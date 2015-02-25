@@ -34,20 +34,22 @@ public class BroadcastClient implements Runnable {
         while(true){
             assert ds != null;
             ds.receive(packet);
+            
             String s = new String(packet.getData(), 0, packet.getLength());
+            System.out.println(s);
             if (s.equals(password)){
                 reply();
             }
         }
     }
-    class SlaveInfo implements Serializable{
 
-    }
     void reply() throws IOException {
+        
         Socket local = new Socket(packet.getAddress(), 8888);
         System.out.println(packet.getAddress());
         ObjectOutputStream out = new ObjectOutputStream(local.getOutputStream());
         SlaveInfo slaveInfo = new SlaveInfo();
         out.writeObject(slaveInfo);
+        
     }
 }
