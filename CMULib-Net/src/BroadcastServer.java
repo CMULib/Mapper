@@ -8,11 +8,15 @@ public class BroadcastServer implements Runnable {
   
   private boolean running;
   
+  private Broadcast broadcast;
+  
   public BroadcastServer(int port) {
     try {
       server = new ServerSocket(port);
       System.out.println("Starting server on port: " + server.getLocalPort());
       System.out.println("IP Address: " + server.getInetAddress());
+      broadcast = new Broadcast();
+      broadcast.broadcast();
     } catch (IOException e) {
       // TODO Auto-generated catch block
       System.err.println("Failed to open port " + port);
