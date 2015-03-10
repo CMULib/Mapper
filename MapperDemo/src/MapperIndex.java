@@ -43,5 +43,4 @@ public class MapperIndex {
         return new Node(address, port);
     }
 
-
 }
