@@ -24,11 +24,11 @@ public class MapperIndex {
 
     public String getChildAddress(int i){
         Node child = this.children.get(i);
-        return child.address + child.port;
+        return child.address + '/' + child.port;
     }
 
     public String getParentAddress(){
-        return parent.address + parent.port;
+        return parent.address + '/' +  parent.port;
     }
 
     public void setParentAddress(String address, int port){
