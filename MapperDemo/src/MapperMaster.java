@@ -47,7 +47,10 @@ public class MapperMaster {
                     //  logger.info("New slave connected");
                     index.addChild(sock.getInetAddress(), sock.getPort());
                     System.out.println( index.getChildAddress(i++));
-
+                    if(i == 3){
+                        System.out.println("finish!");
+                        System.exit(0);
+                    }
                 }catch (IOException e){
                     System.err.println("fail to establish a socket with a slave node");
                     e.printStackTrace();
