@@ -22,7 +22,7 @@ public class MapperLocalMaster {
 
     public MapperLocalMaster(){
         try {
-            server = new ServerSocket(MapperUtil.MasterPort);
+            server = new ServerSocket(MapperUtil.localMasterPort);
         } catch (IOException e) {
             System.err.println("server post is disabled ...");
             e.printStackTrace();
