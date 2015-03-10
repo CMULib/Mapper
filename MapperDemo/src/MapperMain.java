@@ -9,7 +9,8 @@ public class MapperMain {
         }else if(args[0].equals("lmaster")){
 
         }else if(args[0].equals("slave")){
-
+            MapperSlave slave = new MapperSlave();
+            slave.StartService();
         }else{
             System.err.println("wrong arguments");
             System.exit(1);
