@@ -7,7 +7,7 @@ public class MapperMain {
             MapperMaster master = new MapperMaster();
             master.startService();
         }else if(args[0].equals("lmaster")){
-
+            MapperLocalMaster localMaster = new MapperLocalMaster();
         }else if(args[0].equals("slave")){
             MapperSlave slave = new MapperSlave();
             slave.StartService();
