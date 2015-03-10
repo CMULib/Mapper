@@ -21,6 +21,7 @@ public class MapperLocalMaster {
     }
 
     public MapperLocalMaster(){
+        index.setParentAddress(MapperUtil.MasterIP, MapperUtil.MasterPort);
         try {
             server = new ServerSocket(MapperUtil.localMasterPort);
         } catch (IOException e) {
@@ -32,15 +33,17 @@ public class MapperLocalMaster {
     public void StartService() throws IOException {
         int counter = 0;
         StringBuilder reply = new StringBuilder();
-        while(counter < 3){
+        while(counter < 2){
             Socket sk = server.accept();
+            index.addChildAddress(sk.getInetAddress().toString(), sk.getPort());
             counter++;
-            DataInputStream input = (DataInputStream) sk.getInputStream();
+            DataInputStream input = new DataInputStream(sk.getInputStream());
             reply.append(input.readUTF());
         }
         String address[] = index.getParentAddress().split("/");
         Socket tcp = new Socket(address[0], Integer.parseInt(address[1]));
         DataOutputStream output = new DataOutputStream(tcp.getOutputStream());
+        System.out.println(reply.toString());
         output.writeUTF(reply.toString());
     }
 

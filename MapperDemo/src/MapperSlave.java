@@ -12,7 +12,7 @@ public class MapperSlave {
     MapperIndex index = new MapperIndex();
 
     public MapperSlave(){
-
+        index.setParentAddress(MapperUtil.LocalMasterIP, MapperUtil.localMasterPort);
     }
 
     public MapperSlave(String masterAddress, int port){
