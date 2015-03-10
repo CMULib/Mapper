@@ -11,6 +11,11 @@ import java.util.Date;
  */
 public class MapperMaster {
 
+    private MapperIndex index;
+
+    public MapperMaster(){
+        index = new MapperIndex();
+    }
 
     public void startService(){
         ListenerService listener = new ListenerService(MapperUtil.gmaster);
@@ -34,22 +39,17 @@ public class MapperMaster {
          * run function, inherited from Thread Class
          */
         public void run() {
+            int i = 0;
             while(true) {
                 try {
                     Socket sock = listener.accept();
                     //System.out.println("New slave connected");
                     //  logger.info("New slave connected");
-//                    SDSlave aSlave = new SDSlave(sock.getInetAddress(), sock.getPort());
-//                    aSlave.setReader(new BufferedReader(new InputStreamReader(sock.getInputStream())));
-//                    aSlave.setWriter(new PrintWriter(sock.getOutputStream()));
-//                    int key = (int)(getCurrentTimeInMillionSeconds() % 1000000);
-//                    synchronized (slaveHashMap){
-//                        //TODO: write a robust slave id assignment function
-//                        slaveHashMap.put(key, aSlave);
-//                    }
+                    index.addChild(sock.getInetAddress(), sock.getPort());
+                    System.out.println( index.getChildAddress(i++));
+
                 }catch (IOException e){
-                    //System.err.println("fail to establish a socket with a slave node");
-                    // logger.error("fail to establish a socket with a slave node");
+                    System.err.println("fail to establish a socket with a slave node");
                     e.printStackTrace();
                 }
             }

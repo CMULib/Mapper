@@ -4,7 +4,8 @@
 public class MapperMain {
     public static void main(String[] args){
         if(args[0].equals("gmaster")){
-
+            MapperMaster master = new MapperMaster();
+            master.startService();
         }else if(args[0].equals("lmaster")){
 
         }else if(args[0].equals("slave")){

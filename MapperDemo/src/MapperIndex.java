@@ -29,6 +29,12 @@ public class MapperIndex {
         return parent.address.getHostAddress() + parent.port;
     }
 
-    
+
+    public void addChild(InetAddress address, int port){
+        Node child = new Node();
+        child.address = address;
+        child.port = port;
+        children.add(child);
+    }
 
 }
