@@ -33,7 +33,7 @@ public class MapperLocalMaster {
     public void StartService() throws IOException {
         int counter = 0;
         StringBuilder reply = new StringBuilder();
-        while(counter < 2){
+        while(counter < 3){
             Socket sk = server.accept();
             index.addChildAddress(sk.getInetAddress().toString(), sk.getPort());
             counter++;
